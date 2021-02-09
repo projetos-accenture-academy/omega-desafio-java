@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import academy.gama.desafio.app.Sistema;
+import academy.gama.desafio.model.Usuario;
 
 @SpringBootApplication
 public class DesafioJavaApplication {
@@ -15,9 +16,12 @@ public class DesafioJavaApplication {
 	}
 
 	@Bean
-    public CommandLineRunner run(Sistema sistema) throws Exception {
-        return args -> {
-           sistema.incluirConta();
-        };
-    }
+	public CommandLineRunner run(Sistema sistema) throws Exception {
+		return args -> {
+			sistema.incluirConta();		
+			Usuario user = new Usuario("alessandra", "senha123", "Alessandra Canuto1", "000.000.000-00");
+			sistema.salvarUsuario(user);
+		};
+	}
+		
 }
