@@ -6,38 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import academy.gama.desafio.exceptions.ContaExistenteException;
 import academy.gama.desafio.model.Conta;
 import academy.gama.desafio.model.Usuario;
 import academy.gama.desafio.repository.ContaRepository;
 import academy.gama.desafio.repository.UsuarioRepository;
+import academy.gama.desafio.service.ContaService;
 
 @Component
 public class Sistema {
 	@Autowired
-	private ContaRepository repository;
-	
-	@Transactional
-	public void incluirConta() {
-//		Usuario usuario = new Usuario("alessandra", "senha123", "Alessandra Canuto", "000.000.000-00"); 
+	private ContaService contaService = new ContaService();
 
-		Conta conta = new Conta();
-		conta.setNumero("gso1");
-		//conta.setUsuario(usuario);
-		
-		//if(!repository.existsByNumero(conta.getNumero()))		
-		
-		repository.save(conta);	
-	}
-	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
+	@Transactional
+	public void incluirConta(Usuario usuario) {
+		try {
+			contaService.adicionarConta(new Conta(usuario));
+		} catch (ContaExistenteException e) {
+			System.err.println("\nErro ao tentar adicionar conta ao usuario " + usuario.getNome() + ".");
+			System.err.println(e.getMessage()+"\n");
+		}	
+	}
+	
 	@Transactional
 	public Usuario salvarUsuario(Usuario user) {
 		if (!usuarioRepository.existsById(user.getId()) && user.valid()) {
 			return usuarioRepository.save(user);
 		}
+		
 		return null;
+		
 	}	
 	
 	@Transactional
@@ -56,7 +57,7 @@ public class Sistema {
 	}
 	
 	@Transactional
-	public Optional<Usuario> findUsuarioByLogin(String login) {
+	public Usuario findUsuarioByLogin(String login) {
 		return usuarioRepository.findByLogin(login);
 	}
 	

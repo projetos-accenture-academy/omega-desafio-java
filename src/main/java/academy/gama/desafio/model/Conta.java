@@ -1,11 +1,19 @@
 package academy.gama.desafio.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+import academy.gama.desafio.enums.TipoConta;
 
 @Entity
 @Table(name = "contas")
@@ -14,30 +22,46 @@ public class Conta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(nullable = false,length = 20)
+	@Column(unique = true, nullable = false,length = 20)
 	private String numero;
 	
-	@Column(nullable = false,precision = 9, scale = 2 ) 
+	@Column(nullable = false, length = 50)
+	private String descricao;
+
+	@Enumerated(EnumType.STRING)
+	private TipoConta tipo;
+	
+	@Column(nullable = false, scale = 2 ) 
 	private Double saldo;
 	
-	/*@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "usuarioID")
-	private Usuario usuario;*/
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
 	
 	public Conta() {
 		this.saldo = 0.0;
+		this.descricao = "Conta Corrente";
+		this.tipo = TipoConta.CC;
 	}
 	
-	/*public Usuario getUsuario() {
+	/**
+	 * Cria uma conta padrão do tipo <b>CC</b> para o usuário informado
+	 * @param usuario
+	 */
+	public Conta(Usuario usuario) {
+		this();
+		this.numero = usuario.getLogin();
+		this.usuario = usuario;
+	}
+	
+	
+	
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}*/
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public Integer getId() {
@@ -55,5 +79,12 @@ public class Conta {
 	public void setSaldo(Double saldo) {
 		this.saldo = saldo;
 	}
+
+	@Override
+	public String toString() {
+		return "Conta [id=" + id + ", numero=" + numero + ", descricao=" + descricao + ", tipo=" + tipo + ", saldo="
+				+ saldo + ", usuario=" + usuario + "]";
+	}
+	
 	
 }

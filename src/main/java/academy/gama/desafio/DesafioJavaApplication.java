@@ -18,9 +18,14 @@ public class DesafioJavaApplication {
 	@Bean
 	public CommandLineRunner run(Sistema sistema) throws Exception {
 		return args -> {
-			sistema.incluirConta();		
-			Usuario user = new Usuario("alessandra", "senha123", "Alessandra Canuto1", "000.000.000-00");
-			sistema.salvarUsuario(user);
+			Usuario user = new Usuario("ale", "senha123", "Alessandra Canuto1", "000.000.000-00");
+			
+			Usuario usuarioCriado = sistema.salvarUsuario(user);
+			
+			if(usuarioCriado != null) {
+				System.out.println(usuarioCriado);
+				sistema.incluirConta(usuarioCriado);				
+			}
 		};
 	}
 		
