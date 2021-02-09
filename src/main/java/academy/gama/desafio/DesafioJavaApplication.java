@@ -1,4 +1,4 @@
-package academy.gama.desafio.desafiojava;
+package academy.gama.desafio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
