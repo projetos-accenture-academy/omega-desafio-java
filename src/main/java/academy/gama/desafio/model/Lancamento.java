@@ -45,8 +45,11 @@ public class Lancamento {
 		
 	}
 
-	public La
-	ong getId() {
+	public Lancamento()
+	{
+		
+	}
+	public Long getId() {
 		return id;
 	}
 
