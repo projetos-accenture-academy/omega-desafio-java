@@ -24,13 +24,14 @@ public class ContaService{
 	 * @param conta Conta a ser inserida
 	 * @throws ContaExistenteException
 	 */
-	public void adicionarConta(Conta conta) throws ContaExistenteException{
+	public Conta adicionarConta(Conta conta) throws ContaExistenteException{
 		boolean contaExistente = contaRepository.existsByNumero(conta.getNumero());
 
 		if (!contaExistente)
-			contaRepository.save(conta);
+			return contaRepository.save(conta);
 		else
 			throw new ContaExistenteException("Conta Nº " + conta.getNumero() + " já existe.");
+		
 	}
 
 	/**

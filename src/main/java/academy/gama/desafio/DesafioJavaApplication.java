@@ -23,7 +23,6 @@ public class DesafioJavaApplication {
 			Usuario usuarioCriado = sistema.salvarUsuario(user);
 			
 			if(usuarioCriado != null) {
-				System.out.println(usuarioCriado);
 				sistema.incluirConta(usuarioCriado);				
 			}
 		};
