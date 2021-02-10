@@ -35,7 +35,9 @@ public class Lancamento {
 	
 	//TODO: Inserir PlanoConta
 	
-	
+	@JoinColumn (name = "id_movimentacao", nullable = false)
+	private  PlanoContas planoContas;
+
 	
 	
 	public Lancamento()
@@ -43,7 +45,8 @@ public class Lancamento {
 		
 	}
 
-	public Long getId() {
+	public La
+	ong getId() {
 		return id;
 	}
 
