@@ -57,7 +57,7 @@ public class Sistema {
 	}
 	
 	@Transactional
-	public Usuario findUsuarioByLogin(String login) {
+	public Optional<Usuario> findUsuarioByLogin(String login) {
 		return usuarioRepository.findByLogin(login);
 	}
 	

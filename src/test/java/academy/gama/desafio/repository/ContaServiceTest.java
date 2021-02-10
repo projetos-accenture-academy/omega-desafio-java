@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Optional;
+
 import org.junit.FixMethodOrder;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -57,8 +59,8 @@ public class ContaServiceTest {
     public void criarContaExistente() throws Exception {   
     	// Procura pelo usuário cadastrado no teste anterior para tentar adicionar uma nova conta
     	// com o mesmo número para este usuário
-    	Usuario usuarioCriado = usuarioRepository.findByLogin(usuarioTeste.getLogin());
-    	Conta conta = new Conta(usuarioCriado);
+    	Optional<Usuario> usuarioCriado = usuarioRepository.findByLogin(usuarioTeste.getLogin());
+    	Conta conta = new Conta(usuarioCriado.get());
 
     	assertNotNull(usuarioCriado);
     	
