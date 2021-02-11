@@ -11,18 +11,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Tabela de Lançamentos
+ * @author Brian
+ *
+ */
 @Entity
-@Table(name = "lancamento")
+@Table(name = "lancamentos")
 public class Lancamento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@JoinColumn (name = "id_conta_origem", nullable = false)
+	//TODO: Inserir FK PlanoConta
+
+	//Is null when it's a deposit
+	@JoinColumn (name = "id_conta_origem", nullable = true)
 	@ManyToOne
 	private Conta contaOrigem;
 	
+  //It's null when it's a withdrawal
 	@JoinColumn(name = "id_conta_destino", nullable = true)
 	@ManyToOne
 	private Conta contaDestino;
@@ -33,8 +42,10 @@ public class Lancamento {
 	@Column
 	private Double valor;
 	
-	//TODO: Inserir PlanoConta
-	
+
+	@Column
+	private String descricao;
+
 	
 	
 	
@@ -78,4 +89,13 @@ public class Lancamento {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
 }
