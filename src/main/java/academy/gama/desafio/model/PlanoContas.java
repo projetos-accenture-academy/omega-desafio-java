@@ -22,7 +22,7 @@ public class PlanoContas implements Serializable {
 	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	private String nome_da_movimentacao;
-	private char natureza_da_operacao; // aqui entra R, D, TC, TU
+	private String  natureza_da_operacao; // aqui entra R, D, TC, TU
 	
 	
 	/**
