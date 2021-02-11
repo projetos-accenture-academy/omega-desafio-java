@@ -40,10 +40,7 @@ public class Lancamento {
 
 	
 	
-	public Lancamento()
-	{
-		
-	}
+
 
 	public Lancamento()
 	{
