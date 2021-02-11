@@ -11,8 +11,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Tabela de Lançamentos
+ * @author Brian
+ *
+ */
 @Entity
-@Table(name = "lancamento")
+@Table(name = "lancamentos")
 public class Lancamento {
 	
 	@Id
