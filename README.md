@@ -16,8 +16,6 @@
 	- Buscar contas pelo seu numero
 	- Buscar contas por usuário cadastrado
 	- Remoção de conta
-	- Atualização de dados da conta
-	- 
 - Lançamentos
 	
 
