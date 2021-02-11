@@ -1,6 +1,5 @@
 package academy.gama.desafio.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,9 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import academy.gama.desafio.enums.TipoConta;
+import academy.gama.desafio.exceptions.UsuarioNuloException;
+import academy.gama.desafio.utils.Validator;
 
 @Entity
 @Table(name = "contas")
@@ -38,48 +38,64 @@ public class Conta {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
+	
 	public Conta() {
-		this.saldo = 0.0;
-		this.descricao = "Conta Corrente";
-		this.tipo = TipoConta.CC;
 	}
 	
 	/**
 	 * Cria uma conta padrão do tipo <b>CC</b> para o usuário informado
 	 * @param usuario
+	 * @throws UsuarioNuloException 
 	 */
-	public Conta(Usuario usuario) {
-		this();
-		this.numero = usuario.getLogin();
+	public Conta(Usuario usuario, String numero) {
+
+		this.saldo = 0.0;
+		this.descricao = "Conta Corrente";
+		this.tipo = TipoConta.CC;
 		this.usuario = usuario;
+		this.numero = numero;
 	}
-	
-	
 	
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(Usuario usuario){
 		this.usuario = usuario;
 	}
 
 	public Integer getId() {
 		return id;
 	}
+	
 	public String getNumero() {
 		return numero;
 	}
+	
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+	
 	public Double getSaldo() {
 		return saldo;
-	}
-	public void setSaldo(Double saldo) {
-		this.saldo = saldo;
+	}	
+
+	public String getDescricao() {
+		return descricao;
 	}
 
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public TipoConta getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoConta tipo) {
+		this.tipo = tipo;
+	}
+	
 	@Override
 	public String toString() {
 		return "Conta [id=" + id + ", numero=" + numero + ", descricao=" + descricao + ", tipo=" + tipo + ", saldo="
