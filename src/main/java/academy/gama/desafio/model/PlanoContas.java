@@ -15,7 +15,11 @@ import org.hibernate.annotations.GenericGenerator;
 
 import  academy.gama.desafio.enums.TipoTransacao;
 
-
+/**
+ * 
+ * @author raul castro
+ *
+ */
 
 @Entity
 @Table(name = "plano_de_contas")
