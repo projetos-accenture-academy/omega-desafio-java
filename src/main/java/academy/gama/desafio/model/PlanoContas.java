@@ -1,5 +1,6 @@
 package academy.gama.desafio.model;
 
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -10,6 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 import org.hibernate.annotations.GenericGenerator;
+
+
+import  academy.gama.desafio.enums.TipoTransacao;
+
+
 
 @Entity
 @Table(name = "plano_de_contas")
@@ -22,8 +28,7 @@ public class PlanoContas implements Serializable {
 	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	private String nome_da_movimentacao;
-	private String  natureza_da_operacao; // aqui entra R, D, TC, TU
-	
+	private TipoTransacao natureza_da_operacao; // aqui entra classificação da conta
 	
 	/**
 	 * getters & setters...
