@@ -32,12 +32,22 @@ public class PlanoContas implements Serializable {
 	@GenericGenerator(name = "increment", strategy = "increment")
 	private Long id;
 	private String nome_da_movimentacao;
+	private String login;
 	private TipoTransacao natureza_da_operacao; // aqui entra classificação da conta
 	
 	/**
 	 * getters & setters...
 	 * @return
 	 */
+	
+	
+	public String getLogin() {
+		return login;
+	}
+	
+	public void setLogin(String login) {
+		this.login=login;
+	}
 	
 	public String getNome_da_movimentacao() {
 		return nome_da_movimentacao;
