@@ -45,10 +45,10 @@ public class PlanoContas implements Serializable {
 	public void setNome_da_movimentacao(String nome_da_movimentacao) {
 		this.nome_da_movimentacao = nome_da_movimentacao;
 	}
-	public String getNatureza_da_operacao() {
+	public TipoTransacao getNatureza_da_operacao() {
 		return natureza_da_operacao;
 	}
-	public void setNatureza_da_operacao(String natureza_da_operacao) {
+	public void setNatureza_da_operacao(TipoTransacao natureza_da_operacao) {
 		this.natureza_da_operacao = natureza_da_operacao;
 	}
 	public Long getId() {
