@@ -23,12 +23,18 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+<<<<<<< HEAD
 		<!--Driver de H2 usado nas classes de tests-->
 		<dependency> 	
 			<groupId>com.h2database</groupId> 
 			<artifactId>h2</artifactId> 
 			<scope>runtime</scope> 
 		</dependency>
+=======
+		<!--Remoção do Driver de H2 -->
+		<!--<dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			<scope>runtime</scope> </dependency> -->
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 
 		<!-- Inserção do driver de Postgre -->
 		<dependency>
@@ -46,6 +52,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+<<<<<<< HEAD
 		</dependency>		
 		
 		<dependency>
@@ -55,6 +62,10 @@
 			<scope>test</scope>
 		</dependency>
 
+=======
+		</dependency>
+		
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 	</dependencies>
 
 	<build>

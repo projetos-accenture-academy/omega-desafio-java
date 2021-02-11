@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 <h1 align="center">
     Ωmega Bank - Backend
 </h1>
 
+<<<<<<< HEAD
 <p align="center">Projeto desenvolvido pelo Grupo Ômega para o Projeto Java da ACCT2 🎓 (2021). <br/></p>
 
 ### 🚀 Funcionalidades implementadas
@@ -39,6 +43,14 @@ A divisão do projeto foi feita por módulos de desenvolvimento, sendo que cada 
 
 ### 🛠 Tecnologias
 
+=======
+<p align="center">Projeto desenvolvido pelo Grupo Ômega para o desafio de Java da ACCT2 🎓 (2021). <br/></p>
+
+### 🛠 Tecnologias
+
+Tecnologias utilizadas:
+
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 -   [Java](https://developer.mozilla.org/en-US/docs/Glossary/Java)
 -   [Spring](https://spring.io/)
 -   [Eclipse IDE](https://www.eclipse.org/)
@@ -49,5 +61,18 @@ A divisão do projeto foi feita por módulos de desenvolvimento, sendo que cada 
 -   Utilizando uma IDE como o Eclipse, importe o projeto como um projeto Maven
 -   Execute o arquivo DesafioJavaApplication.java, localizado em omega-desafio-java/src/main/java/academy.gama.desafio
 
+<<<<<<< HEAD
 
 -----
+=======
+### 🔗 Acesse em
+
+-   N/A
+
+### 🧑‍🤝‍🧑 Autores
+
+[<a href="https://github.com/alecanutto" title="GitHub">Alessandra Canuto 🚀 </a>]
+[<a href="https://github.com/bconfessor" title="GitHub">Brian Confessor 🚀 </a>]
+[<a href="https://github.com/kellisonjk" title="GitHub">José Kellison 🚀 </a>]
+[<a href="https://github.com/raulc27" title="GitHub">Raul Castro 🚀 </a>]
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53

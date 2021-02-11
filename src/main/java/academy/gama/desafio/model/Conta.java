@@ -1,5 +1,9 @@
 package academy.gama.desafio.model;
 
+<<<<<<< HEAD
+=======
+import javax.persistence.CascadeType;
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,10 +14,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+<<<<<<< HEAD
 
 import academy.gama.desafio.enums.TipoConta;
 import academy.gama.desafio.exceptions.UsuarioNuloException;
 import academy.gama.desafio.utils.Validator;
+=======
+import javax.persistence.UniqueConstraint;
+
+import academy.gama.desafio.enums.TipoConta;
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 
 @Entity
 @Table(name = "contas")
@@ -38,13 +48,21 @@ public class Conta {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
+<<<<<<< HEAD
 	
 	public Conta() {
+=======
+	public Conta() {
+		this.saldo = 0.0;
+		this.descricao = "Conta Corrente";
+		this.tipo = TipoConta.CC;
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 	}
 	
 	/**
 	 * Cria uma conta padrão do tipo <b>CC</b> para o usuário informado
 	 * @param usuario
+<<<<<<< HEAD
 	 * @throws UsuarioNuloException 
 	 */
 	public Conta(Usuario usuario, String numero) {
@@ -56,17 +74,33 @@ public class Conta {
 		this.numero = numero;
 	}
 	
+=======
+	 */
+	public Conta(Usuario usuario) {
+		this();
+		this.numero = usuario.getLogin();
+		this.usuario = usuario;
+	}
+	
+	
+	
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
+<<<<<<< HEAD
 	public void setUsuario(Usuario usuario){
+=======
+	public void setUsuario(Usuario usuario) {
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 		this.usuario = usuario;
 	}
 
 	public Integer getId() {
 		return id;
 	}
+<<<<<<< HEAD
 	
 	public String getNumero() {
 		return numero;
@@ -96,6 +130,21 @@ public class Conta {
 		this.tipo = tipo;
 	}
 	
+=======
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+	public Double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
+
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 	@Override
 	public String toString() {
 		return "Conta [id=" + id + ", numero=" + numero + ", descricao=" + descricao + ", tipo=" + tipo + ", saldo="

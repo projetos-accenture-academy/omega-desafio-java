@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+<<<<<<< HEAD
 /**
  * Tabela de Lançamentos
  * @author Brian
@@ -18,12 +19,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "lancamentos")
+=======
+@Entity
+@Table(name = "lancamento")
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 public class Lancamento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+<<<<<<< HEAD
 	//TODO: Inserir FK PlanoConta
 
 	//Is null when it's a deposit
@@ -32,6 +38,12 @@ public class Lancamento {
 	private Conta contaOrigem;
 	
   //It's null when it's a withdrawal
+=======
+	@JoinColumn (name = "id_conta_origem", nullable = false)
+	@ManyToOne
+	private Conta contaOrigem;
+	
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 	@JoinColumn(name = "id_conta_destino", nullable = true)
 	@ManyToOne
 	private Conta contaDestino;
@@ -42,10 +54,15 @@ public class Lancamento {
 	@Column
 	private Double valor;
 	
+<<<<<<< HEAD
 
 	@Column
 	private String descricao;
 
+=======
+	//TODO: Inserir PlanoConta
+	
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
 	
 	
 	
@@ -89,6 +106,7 @@ public class Lancamento {
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+<<<<<<< HEAD
 	
 	public String getDescricao() {
 		return descricao;
@@ -99,3 +117,6 @@ public class Lancamento {
 	}
 
 }
+=======
+}
+>>>>>>> 868dfb8c83602958d5d76cae4623b0f859318e53
