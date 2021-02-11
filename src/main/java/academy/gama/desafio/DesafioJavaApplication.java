@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import academy.gama.desafio.app.Sistema;
+import academy.gama.desafio.model.Conta;
 import academy.gama.desafio.model.Usuario;
 
 @SpringBootApplication
