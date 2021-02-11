@@ -7,7 +7,7 @@ import academy.gama.desafio.model.Lancamento;
 import academy.gama.desafio.repository.PlanoContasRepository;
 import academy.gama.desafio.repository.UsuarioRepository;
 
-
+@Component
 public class PlanoContasService {
 
 }
