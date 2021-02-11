@@ -66,7 +66,7 @@ public class ContaService{
 	 * @return Conta
 	 * @throws Exception 
 	 */
-	public Conta getConta(String numero) throws Exception {
+	public Conta getContaPorNumero(String numero) throws Exception {
 		Validator.valorVazioOuNull(numero, "Não é possível pesquisar uma conta através de uma parâmetro nulo");
 
 		return contaRepository.findByNumero(numero);
