@@ -26,7 +26,7 @@ public class Lancamento {
 	@ManyToOne
 	private Conta contaOrigem;
 	
-	//It's null when it's a withdrawal
+  //It's null when it's a withdrawal
 	@JoinColumn(name = "id_conta_destino", nullable = true)
 	@ManyToOne
 	private Conta contaDestino;
@@ -40,6 +40,7 @@ public class Lancamento {
 
 	@Column
 	private String descricao;
+
 	
 	
 	
@@ -91,4 +92,5 @@ public class Lancamento {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
 }
