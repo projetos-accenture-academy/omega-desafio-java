@@ -28,7 +28,7 @@ public class Usuario {
 	@Column(nullable = false, length = 30)
 	private String nome;
 	
-	@Column(nullable = false, length = 14)
+	@Column(unique = true, nullable = false, length = 14)
 	private String cpf;
 	
 	@Transient
@@ -45,10 +45,6 @@ public class Usuario {
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 	
 	public String getLogin() {
@@ -82,7 +78,7 @@ public class Usuario {
 		
 	@Override
 	public String toString() {
-		return "Usuario [login=" + login + ", senha=" + senha + ", nome=" + nome + ", cpf=" + cpf + "]";
+		return "Usuario [id = " + id + ",login=" + login + ", senha=" + senha + ", nome=" + nome + ", cpf=" + cpf + "]";
 	}
 	
 	public boolean valid() {
