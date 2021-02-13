@@ -30,6 +30,7 @@
 A divisão do projeto foi feita por módulos de desenvolvimento, sendo que cada integrante do grupo ficou encarregado por desenvolver um dos CRUDs do sistema (listados nas funcionalidades do item anterior). Uma parte dos testes realizados envolvem os repositórios criados, visto que até o dia anterior a entrega tínhamos o entendimento que era um dos requisitos para esta fase do projeto.
 
 - <a href="https://github.com/alecanutto" title="GitHub">Alessandra Canuto</a>
+	- Responsável pela criação dos usuários e seus testes unitários
 - <a href="https://github.com/bconfessor" title="GitHub">Brian Confessor</a>
 	- Responsável pela criação das partes que integram o módulo de Lançamentos, e pela configuração inicial do banco de dados no Heroku
 - <a href="https://github.com/kellisonjk" title="GitHub">José Kellison</a> 
