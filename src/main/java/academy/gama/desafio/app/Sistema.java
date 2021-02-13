@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import academy.gama.desafio.exceptions.ContaExistenteException;
 import academy.gama.desafio.model.Conta;
 import academy.gama.desafio.model.Usuario;
 import academy.gama.desafio.service.ContaService;
 import academy.gama.desafio.service.UsuarioService;
+
 
 @Component
 public class Sistema {
@@ -30,13 +30,13 @@ public class Sistema {
 	}	
 	
 	@Transactional
-	public void incluirConta(Usuario usuario) {
+	public void incluirConta(Usuario usuario){
 		try {
-			contaService.adicionarConta(new Conta(usuario));
-		} catch (ContaExistenteException e) {
+			contaService.adicionarConta(new Conta(usuario, usuario.getLogin()));
+		} catch (Exception e) {
 			System.err.println("\nErro ao tentar adicionar conta ao usuario " + usuario.getNome() + ".");
 			System.err.println(e.getMessage()+"\n");
-		}	
-	}	
+		}
+	}
 	
 }

@@ -48,7 +48,7 @@ public class UsuarioService {
 		return usuarioRepository.findById(id);
 	}
 
-	public Usuario findUsuarioByLogin(String login) {
+	public Optional<Usuario> findUsuarioByLogin(String login) {
 		return usuarioRepository.findByLogin(login);
 	}
 

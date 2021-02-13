@@ -1,20 +1,31 @@
 package academy.gama.desafio.desafiojava;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import academy.gama.desafio.model.Conta;
 import academy.gama.desafio.model.Usuario;
 import academy.gama.desafio.repository.UsuarioRepository;
 
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
+@AutoConfigureTestDatabase(replace = Replace.AUTO_CONFIGURED)
+@TestMethodOrder(OrderAnnotation.class)
 class UsuarioTest {
 
-	@Autowired
 	private Usuario usuario;
 	
 	@Autowired
@@ -22,13 +33,14 @@ class UsuarioTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		usuario = new Usuario();		
+		usuario = new Usuario();
 	}
 
 	@Test
+	@Order(1)
 	void testAddUsuario() {
 		usuario.setNome("Alessandra");
-		usuario.setCpf("000.000.000-00");
+		usuario.setCpf("000.000.001-00");
 		usuario.setLogin("acanuto");
 		usuario.setSenha("123456");
 		assertTrue(usuarioRepository.save(usuario) != null);		
@@ -37,20 +49,27 @@ class UsuarioTest {
 	@Test
 	void testAddUsuarioInvalido() {
 		usuario.setNome("Alessandra");
-		usuario.setCpf("000.000.000-00");
+		usuario.setCpf("000.000.002-00");
 		usuario.setLogin("acanuto");
 		usuario.setSenha("123");
-		assertFalse(usuarioRepository.save(usuario) != null, String.join(", ", usuario.getListError()));
+		assertFalse(usuarioRepository.save(usuario) == null, String.join(", ", usuario.getListError()));
 	}
 	
 	@Test
+	@Order(2)
 	void testAddUsuarioCadastrado() {
 		usuario.setNome("Alessandra");
-		usuario.setCpf("000.000.000-00");
+		usuario.setCpf("000.000.001-00");
 		usuario.setLogin("acanuto");
 		usuario.setSenha("123456");
-		assertTrue(usuarioRepository.save(usuario) != null);		
-		assertTrue(usuarioRepository.existsById(usuario.getId()), "teste");
+
+		assertThrows(Exception.class, () -> {
+			
+        	usuarioRepository.save(usuario);
+        });
+
+				
+		assertFalse(usuarioRepository.existsById(usuario.getId()), "teste");
 	}
 
 }
