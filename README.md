@@ -31,6 +31,7 @@ A divisão do projeto foi feita por módulos de desenvolvimento, sendo que cada 
 
 - <a href="https://github.com/alecanutto" title="GitHub">Alessandra Canuto</a>
 - <a href="https://github.com/bconfessor" title="GitHub">Brian Confessor</a>
+	- Responsável pela criação das partes que integram o módulo de Lançamentos, e pela configuração inicial do banco de dados no Heroku
 - <a href="https://github.com/kellisonjk" title="GitHub">José Kellison</a> 
 	- Responsável pela criação das partes que integram módulo de contas e seus testes unitários.
 - <a href="https://github.com/raulc27" title="GitHub">Raul Castro</a>
